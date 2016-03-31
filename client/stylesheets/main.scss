@@ -5,3 +5,31 @@ body {
   font: 100% $font-stack;
   background: $primary-color;
 }
+
+#spinner {
+	align-content: center;
+	width: 200px;
+	height: 200px;
+}
+.img {
+	height: 150px;
+	width: 200px;
+}
+
+.fish-flex {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.card-size {
+	width: 20%;
+}
+
+.myContainer {
+	
+}
+
+#fishForm {
+	margin-bottom: 200px;
+}

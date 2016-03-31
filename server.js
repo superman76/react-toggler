@@ -5,6 +5,10 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/fish');
+
+var fishRoutes = require('./routes/fish');
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
@@ -25,6 +29,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use('/img', express.static('img'));
+
+app.use('/api/fish', fishRoutes);
+  // line 33 prefaces all fishRoutes with api
+
+
+
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
