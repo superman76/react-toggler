@@ -51,7 +51,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-      	<NavBar setActiveComponent={ this.setActiveComponent }/>
+      	<NavBar activeComponent={ this.state.activeComponent } setActiveComponent={ this.setActiveComponent }/>
      	<h1>Uninaninonimity</h1>
      		<div>
      		 { this.showWhichComponent() }
