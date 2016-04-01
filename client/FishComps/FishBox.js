@@ -1,6 +1,7 @@
 var React = require('react');
-var FishForm = require('./FishForm');
+var FishFormData = require('./FishFormData');
 var FishListData = require('./FishListData');
+var FishDetailsData = require('./FishDetailsData');
 
 // FishBox
 // 	  Toggler	
@@ -23,15 +24,24 @@ var Toggler = React.createClass({
 var FishBox = React.createClass({
 	getInitialState: function() {
 		return {
-			activeComponent: 'fish'
+			activeComponent: 'fish',
+			activeFishId: null,
 			}
+	},
+	getId: function(id) {
+		return this.setState({ activeFishId: id, activeComponent: 'oneFish'})
 	},
 	showComp: function(){
 		/* this function renders one component based on activecomp state */
 		if(this.state.activeComponent === 'fish') {
-			return <FishListData/> 
+			return <FishListData getId={ this.getId }/>
+
 		} else if (this.state.activeComponent === 'form'){
-			return <FishForm submitFishToServer={ this.props.submitFishToServer }/>
+			return <FishFormData toggleActiveComp={ this.toggleActiveComp }/>
+
+		} else if (this.state.activeComponent === 'oneFish'){
+			return <FishDetailsData id={ this.state.activeFishId }/>
+			
 		} else {
 			throw new Error("Invalid activeComponent ", this.state.activeComponent)
 		}

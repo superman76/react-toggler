@@ -3,20 +3,22 @@ var FishCard = require('./FishCard');
 
 function FishList(props){
 	// map through  our data and pass it to fish card
-	var allFish = props.fishArray.map(fish =>{
+	var allFish = props.fishArray.map(item =>{
 		return (
 			<FishCard 
-			key={ fish._id }
-			name={ fish.name }
-			color= { fish.color }
-			people_eater= { fish.people_eater }
-			length= { fish.length }
-			img= { fish.img } />
+			getId={ props.getId }
+			id={ item._id}
+			key={ item._id }
+			name={ item.name }
+			color= { item.color }
+			people_eater= { item.people_eater }
+			length= { item.length }
+			img= { item.img } />
 		);
 	});
 
 	return (
-		<div className="fish-flex">
+		<div className="container myContainer fish-flex">
 		  { allFish }
 		</div>
 	)

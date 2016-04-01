@@ -15,12 +15,15 @@ var FishListData = React.createClass({
 			method: 'GET'
 		}).done( data => this.setState({ allFish: data}) );
 	},
+
 	componentDidMount() {
 		this.loadAllFishFromServer();
 	},
 	render() {
-		return this.state.allFish ? <FishList fishArray={this.state.allFish}/> : <Loader/>
+		return this.state.allFish ? <FishList fishArray={this.state.allFish} getId={ this.props.getId }/> : <FishLoader/>
 	},
 });
 
 module.exports = FishListData;
+
+}

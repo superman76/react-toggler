@@ -35,7 +35,7 @@ router.route('/')
 		})
 	});
 // 
-router.route('/oneFish/:fish_id')
+router.route('/one_fish/:fish_id')
 	// GET ONE FISH FROM /API/FISH/oneFish/ID_NUMBER
 	.get(function(req, res){
 		Fish.findById(req.params.fish_id, function(err, fish){

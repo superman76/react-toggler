@@ -1,7 +1,6 @@
-
 var React = require('react');
 
-var Loader = React.createClass({
+var FishLoader = React.createClass({
   render: function(){
     return (
       <div>
@@ -11,4 +10,4 @@ var Loader = React.createClass({
   }
 });
 
-module.exports = Loader;
+module.exports = FishLoader;
