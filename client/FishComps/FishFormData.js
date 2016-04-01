@@ -11,6 +11,9 @@ var FishFormData = React.createClass({
 			img: null
 		}
 	},
+	contextTypes: {
+		sendNotification: React.PropTypes.func.isRequired
+	},
 	onNameChange: function(event) {
 		this.setState({ fishName: event.target.value })
 	},
@@ -47,6 +50,7 @@ var FishFormData = React.createClass({
 			}).done(function(data){
 				console.log("inside POST fish success", data);
 				self.props.toggleActiveComp('fish');
+				self.context.sendNotification("Added Fish");
 			});
 
 			this.setState({name: "", color: "", length: "", img: "",});

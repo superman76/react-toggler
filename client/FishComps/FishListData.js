@@ -25,5 +25,3 @@ var FishListData = React.createClass({
 });
 
 module.exports = FishListData;
-
-}
