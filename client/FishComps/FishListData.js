@@ -9,6 +9,9 @@ var FishListData = React.createClass({
 			allFish: null
 		}
 	},
+	deleteFish(id) {
+		console.log(id);
+	},
 	loadAllFishFromServer() {	
 		$.ajax({
 			url: '/api/fish',
@@ -20,7 +23,7 @@ var FishListData = React.createClass({
 		this.loadAllFishFromServer();
 	},
 	render() {
-		return this.state.allFish ? <FishList fishArray={this.state.allFish} getId={ this.props.getId }/> : <FishLoader/>
+		return this.state.allFish ? <FishList fishArray={this.state.allFish} getId={ this.props.getId } deleteFish={this.deleteFish} /> : <FishLoader/>
 	},
 });
 
