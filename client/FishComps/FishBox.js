@@ -48,7 +48,7 @@ var FishBox = React.createClass({
 			return <FishDetailsData id={ this.state.activeFishId } />
 			
 		} else if (this.state.activeComponent === 'editFish'){
-			return <EditFishData id={ this.state.activeFishId } />
+			return <EditFishData id={ this.state.activeFishId } toggleActiveComp={ this.toggleActiveComp } />
 			
 		} else {
 			throw new Error("Invalid activeComponent ", this.state.activeComponent)
