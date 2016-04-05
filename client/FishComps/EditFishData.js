@@ -12,7 +12,7 @@ var EditFishData = React.createClass({
 				color: null,
 				length: null,
 				img: null,
-				peopleEater: null
+				people_Eater: null
 		}
 	},
 	contextTypes: {
@@ -30,9 +30,14 @@ var EditFishData = React.createClass({
 				color: data.color,
 				length: data.length,
 				img: data.img,
-				peopleEater: data.peopleEater
+				people_eater: data.people_eater
 			})
 		})
+	},
+	onFieldChange: function(fieldName, fieldValue) {
+		const newState = {};
+		newState[fieldName] = fieldValue;
+		this.setState(newState);
 	},
 	onNameChange: function(event) {
 		this.setState({ name: event.target.value})
@@ -46,21 +51,21 @@ var EditFishData = React.createClass({
 	onImgChange: function(event) {
 		this.setState({ img: event.target.value})
 	},
-	onpeopleEaterChange: function(event) {
-		this.setState({ peopleEater: event.target.value})
+	peopleEaterChange: function(event) {
+		this.setState({ people_eater: event.target.value})
 	},
 	componentDidMount: function() {
 		this.loadOneFishFromServer()
 	},
-	submitFishToServer: function(e) {
+	onFishEditSubmit: function(e) {
 		e.preventDefault();
 		console.log(fishData);
 		var fishData = {
 			name: this.state.name.trim(),
 			color: this.state.color.trim(),
 			length: this.state.length.trim(),
-			img: this.state.img,
-			peopleEater: this.state.peopleEater
+			img: this.state.img.trim(),
+			people_eater: this.state.people_eater
 		};
 
 		console.log("fish data in fish app", fishData);
@@ -79,12 +84,14 @@ var EditFishData = React.createClass({
 			this.setState({name: "", color: "", length: "", img: "",});
 	},
 	render: function() {
-		return this.state.name ? <EditFishForm submitFishToServer={ this.submitFishToServer }
+		return this.state.name ? <EditFishForm 
+									onFishEditSubmit={ this.onFishEditSubmit }
+									onFieldChange={(...args) => this.onFieldChange(...args)}
 									onNameChange={this.onNameChange} 
 									onColorChange={this.onColorChange} 
 									onLengthChange={this.onLengthChange} 
 									onImgChange={this.onImgChange} 
-									onpeopleEaterChange={this.onpeopleEaterChange} 
+									peopleEaterChange={this.peopleEaterChange} 
 									{...this.state} /> : null;
 	}
 });

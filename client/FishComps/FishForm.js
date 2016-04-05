@@ -29,7 +29,7 @@ function FishForm(props){
 			  <fieldset className="form-group">
 			    <label htmlFor='exampleSelect1'>Man Eater?</label>
 			    <select onChange={ props.peopleEaterChange } className="form-control">
-			    	<option value={ "hello" }>Start</option>
+			    	<option>Select Something</option>
 			    	<option value={ true }>Yes</option>
 					<option value={ false }>No</option>
 				</select>

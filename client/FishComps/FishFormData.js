@@ -68,7 +68,7 @@ var FishFormData = React.createClass({
 				onColorChange={ this.onColorChange }
 				onLengthChange={ this.onLengthChange }
 				onImgChange={ this.onImgChange }
-				onpeopleEaterChange={ this.onpeopleEaterChange } />
+				peopleEaterChange={ this.peopleEaterChange } />
 		)
 	}
 });

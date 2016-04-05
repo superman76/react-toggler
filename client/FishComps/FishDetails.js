@@ -12,7 +12,7 @@ function FishDetails(props) {
 		              <h4 className="card-title">{ props.oneFish.name }</h4>
 		              <p className="card-text">{ props.oneFish.color }</p>
 		              <p className="card-text">{ props.oneFish.length }</p>
-		              <p className="card-text">Will I eat people? { (props.oneFish.people_eater).toString() }</p>
+		              <p className="card-text">Will I eat people? { props.oneFish.people_eater.toString() }</p>
 		              </div>
 		          </div>
 

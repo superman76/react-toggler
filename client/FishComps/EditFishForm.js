@@ -4,7 +4,7 @@ function EditFishForm(props) {
 	return (
 		<div className="container myContainer">
 			<h3> Edit a Fish </h3>
-			<form onSubmit={ props.submitFishToServer }>
+			<form onSubmit={ props.onFishEditSubmit }>
 			  <fieldset className="form-group">
 			    <label>Name</label>
 			    <input onChange={ props.onNameChange } value={ props.name } type="text" className="form-control"/>
@@ -27,8 +27,7 @@ function EditFishForm(props) {
 
 			  <fieldset className="form-group">
 			    <label htmlFor='exampleSelect1'>Man Eater?</label>
-			    <select onChange={ props.peopleEaterChange } value={props.peopleEater} className="form-control">
-			    	<option value={ "hello" }>Select an Option below</option>
+			    <select onChange={ props.peopleEaterChange } value={ props.people_eater } className="form-control">
 			    	<option value={ true }>Yes</option>
 					<option value={ false }>No</option>
 				</select>
